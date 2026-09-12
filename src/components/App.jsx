@@ -4,6 +4,7 @@ import "../App.css"
 import AddProject from "./AddProject"
 import Header from "./Header"
 import ProjectList from "./ProjectList"
+import SearchBar from "./SearchBar"
 
 function App() {
     // projects array with prepopulated sample item
@@ -14,16 +15,25 @@ function App() {
             description: "Description of a sample project"
         },
     ])
-
+    // handle deletion
     function handleDelete(projectToDelete) {
         setProjects(projects.filter((project) => project.id !== projectToDelete.id))
+    }
+
+    const [filter, setFilter] = useState("")
+    function filteredProjects() {
+        return filter === "" ? projects : projects.filter((project) => (
+            project.title.toLowerCase().includes(filter.toLowerCase()) ||
+            project.description.toLowerCase().includes(filter.toLowerCase())
+        ))
     }
 
     return (
         <>
             <Header />
             <AddProject setProjects={setProjects} />
-            <ProjectList projects={projects} handleDelete={handleDelete} />
+            <SearchBar filter={filter} setFilter={setFilter} />
+            <ProjectList projects={filteredProjects()} handleDelete={handleDelete} />
         </>
     )
 }

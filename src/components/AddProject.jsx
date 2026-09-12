@@ -2,12 +2,15 @@ import { useState } from "react"
 import { v4 as uuid } from "uuid"
 
 function AddProject({ setProjects }) {
-    // setup blank project state
-    const [newProject, setNewProject] = useState({
+    // blank project state
+    const blankProject = {
         id: uuid(),
         title: "",
         description: "",
-    })
+    }
+
+    // setup blank project state
+    const [newProject, setNewProject] = useState(blankProject)
 
     // on change, update newProject
     const handleChange = (e) => {
@@ -22,8 +25,8 @@ function AddProject({ setProjects }) {
     function addProject(e) {
         e.preventDefault()
         setProjects((prevProjects) => [...prevProjects, newProject])
-        // set new uuid for next entry
-        setNewProject((prevData) => ({...prevData, id: uuid()}))
+        // reset newProject state to clear fields
+        setNewProject(blankProject)
     }
 
     return (
