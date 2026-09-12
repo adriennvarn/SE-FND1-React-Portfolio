@@ -4,7 +4,7 @@ function ProjectList({ projects, handleDelete }) {
     return (
         <div className="projectListCard">
             {/* project search bar */}
-            <div className="ui two column stackable grid container">
+            <div className="ui two cards">
                 {projects.map((project) => (
                     <Project key={project.id} project={project} handleDelete={handleDelete} />
                 ))}

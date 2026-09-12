@@ -16,9 +16,7 @@ function App() {
     ])
 
     function handleDelete(projectToDelete) {
-        setProjects(projects.filter((project) => {
-            project.id !== projectToDelete.id
-        }))
+        setProjects(projects.filter((project) => project.id !== projectToDelete.id))
     }
 
     return (
