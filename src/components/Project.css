@@ -1,0 +1,5 @@
+.wrapped-card-text {
+  white-space: normal !important;
+  word-break: break-word !important; /* Breaks up ultra-long words or links */
+  overflow-wrap: break-word !important;
+}

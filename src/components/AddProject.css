@@ -1,0 +1,11 @@
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.formContainer .field {
+    padding: 0.5rem 0;
+}
