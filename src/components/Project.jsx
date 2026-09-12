@@ -1,6 +1,6 @@
 function Project({ project, handleDelete }) {
     return (
-        <div className="projectItem">
+        <div className="projectItem ui card">
             <img src={null} alt="delete button" onClick={() => handleDelete(project)} />
             <div className="projectInfo">
                 <h3>{project.title}</h3>

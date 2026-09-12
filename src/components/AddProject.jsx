@@ -27,7 +27,7 @@ function AddProject({ setProjects }) {
     }
 
     return (
-        <div className="addProjectCard">
+        <div className="addProjectCard ui center aligned segment">
             <h2>Add Project</h2>
 
             <form onSubmit={(e) => addProject(e)}>

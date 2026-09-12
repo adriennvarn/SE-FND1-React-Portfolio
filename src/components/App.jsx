@@ -6,11 +6,12 @@ import Header from "./Header"
 import ProjectList from "./ProjectList"
 
 function App() {
+    // projects array with prepopulated sample item
     const [projects, setProjects] = useState([
         {
             id: uuid(),
-            title: "Project 1",
-            description: "Sample projects"
+            title: "Sample Project",
+            description: "Description of a sample project"
         },
     ])
 

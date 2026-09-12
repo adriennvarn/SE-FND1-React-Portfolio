@@ -4,10 +4,11 @@ function ProjectList({ projects, handleDelete }) {
     return (
         <div className="projectListCard">
             {/* project search bar */}
-
-            {projects.map((project) => (
-                <Project key={project.id} project={project} handleDelete={handleDelete} />
-            ))}
+            <div className="ui two column stackable grid container">
+                {projects.map((project) => (
+                    <Project key={project.id} project={project} handleDelete={handleDelete} />
+                ))}
+            </div>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 function Header() {
     return (
-        <header>
+        <header className="ui fixed header">
             <h1>Personal Project Showcase App</h1>
         </header>
     )
