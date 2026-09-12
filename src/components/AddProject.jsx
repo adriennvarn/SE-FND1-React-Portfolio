@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { v4 as uuid } from "uuid"
+import "./AddProject.css"
 
 function AddProject({ setProjects }) {
     // blank project state
@@ -30,22 +31,24 @@ function AddProject({ setProjects }) {
     }
 
     return (
-        <div className="addProjectCard ui form">
-            <h2>Add Project</h2>
-            <div className="ui center aligned">
-                <form onSubmit={(e) => addProject(e)} className="fields ui three columns">
-                    <div className="field ui labeled input six wide column">
-                        <label className="ui label" htmlFor="title">Title</label>
+        <form onSubmit={(e) => addProject(e)} className="ui form">
+            <h2 className="ui header">Add Project</h2>
+            <div className="ui fields formContainer">
+                <div className="field">
+                    <div className="ui labeled input">
+                        <label className="ui label">Title</label>
                         <input type="text" name="title" value={newProject.title} onChange={handleChange} placeholder="Enter title..." />
                     </div>
-                    <div className="field ui labeled input six wide column">
-                        <label className="ui label" htmlFor="description">Description</label>
+                </div>
+                <div className="field">
+                    <div className="ui labeled input">
+                        <label className="ui label">Description</label>
                         <input type="text" name="description" value={newProject.description} onChange={handleChange} placeholder="Enter description..." />
                     </div>
-                    <button className="ui button two wide column" type="submit">Add</button>
-                </form>
+                </div>
+                <button className="ui button" type="submit">submit</button>
             </div>
-        </div>
+        </form>
     )
 }
 
