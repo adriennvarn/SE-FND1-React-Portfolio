@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { v4 as uuid } from "uuid"
 import "./AddProject.css"
 
@@ -22,12 +22,20 @@ function AddProject({ setProjects }) {
         }))
     }
 
+    // set up input ref to clear descrip input on submit
+    const inputRef = useRef(null)
+
     // on submit, call setProjects to pass up newProject
+    // remove focus from descrip input if necessary
     function addProject(e) {
         e.preventDefault()
         setProjects((prevProjects) => [...prevProjects, newProject])
         // reset newProject state to clear fields
         setNewProject(blankProject)
+        // remove focus from descrip input
+        if (inputRef.current) {
+            inputRef.current.blur()
+        }
     }
 
     return (
@@ -37,13 +45,25 @@ function AddProject({ setProjects }) {
                 <div className="field">
                     <div className="ui labeled input">
                         <label className="ui label">Title</label>
-                        <input type="text" name="title" value={newProject.title} onChange={handleChange} placeholder="Enter title..." />
+                        <input
+                            type="text"
+                            name="title"
+                            ref={inputRef}
+                            value={newProject.title}
+                            onChange={handleChange}
+                            placeholder="Enter title..." />
                     </div>
                 </div>
                 <div className="field">
                     <div className="ui labeled input">
                         <label className="ui label">Description</label>
-                        <input type="text" name="description" value={newProject.description} onChange={handleChange} placeholder="Enter description..." />
+                        <input
+                            type="text"
+                            name="description"
+                            ref={inputRef}
+                            value={newProject.description}
+                            onChange={handleChange}
+                            placeholder="Enter description..." />
                     </div>
                 </div>
                 <button className="ui button" type="submit">submit</button>
