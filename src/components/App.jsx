@@ -32,7 +32,9 @@ function App() {
         <>
             <Header />
             <AddProject setProjects={setProjects} />
-            <SearchBar filter={filter} setFilter={setFilter} />
+            <div className="ui top attached block header">
+                <SearchBar filter={filter} setFilter={setFilter} />
+            </div>
             <ProjectList projects={filteredProjects()} handleDelete={handleDelete} />
         </>
     )
