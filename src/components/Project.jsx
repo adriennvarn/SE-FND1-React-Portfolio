@@ -1,5 +1,6 @@
 import "./Project.css"
 
+// project card
 function Project({ project, handleDelete }) {
     return (
         <div className="projectItem ui card">

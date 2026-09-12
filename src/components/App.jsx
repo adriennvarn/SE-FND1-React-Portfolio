@@ -20,6 +20,7 @@ function App() {
         setProjects(projects.filter((project) => project.id !== projectToDelete.id))
     }
 
+    // set filter based on search bar, return list after filtering
     const [filter, setFilter] = useState("")
     function filteredProjects() {
         return filter === "" ? projects : projects.filter((project) => (
